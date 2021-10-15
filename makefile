@@ -7,10 +7,10 @@ CFLAGS += -I$(INCLDIR)
 
 OBJDIR = obj
 
-_DEPS = source.h
+_DEPS = source.h database.h
 DEPS = $(patsubst %,$(INCLDIR)/%,$(_DEPS))
 
-_OBJS = oppgave1.o
+_OBJS = oppgave1.o database.o
 OBJS = $(patsubst %,$(OBJDIR)/%,$(_OBJS))
 
 

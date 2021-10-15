@@ -1,45 +1,55 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-int launchLogic(int argv, int argc);
+#include "./include/database.h"
 
 int main(int argc, char*argv[]){
 
-    int iInput;
-    int iCount = argc;
-    iInput = atoi(argv[1]);
+    char input;
+    char szBuffer[255];
 
-    launchLogic(iInput, iCount);
+    //createDatabase();
+    while(input != '5'){
 
-    return 0;
-}
+        printf("skriv en ønsket kommando [1-5]:\n\r");
+        printf("1. Add an element to the database\n\r");
+        printf("2. Find element in the database\n\r");
+        printf("3. Find the total number of elements in the database\n\r");
+        printf("4. Delete an element from the database\n\r");
+        printf("5. Quit\n\r");
 
-int launchLogic(int argv, int argc){
-
-    int iUserSelectedChoice;
-
-        if(argc == 2) {
-            switch (argv) {
-            case 1:
-                printf("1\r\n");
-                iUserSelectedChoice = 1;
+        //scanf("%d", &input);
+        input = getchar();
+        while(getchar() != '\n');
+        switch(input){
+            case '1':
+                printf("Add an element to the database\r\n");
+                printf("Add name:\r\n");
+                fgets(szBuffer, 255, stdin);
+                printf("Will add element %s", szBuffer);
+                addEntry(szBuffer);
                 break;
-            case 2:
-                printf("2\r\n");
-                iUserSelectedChoice = 2;
+            case '2':
+                printf("Find element in the database\r\n");
+                int index = getchar() - '0';
+                char *temp = getElement(index);
+                printf("%s", temp);
                 break;
-            case 3:
-                printf("3\r\n");
-                iUserSelectedChoice = 3;
+            case '3':
+                printf("Find the total number of elements in the database\r\n");
+                int count = getEntryCount();
+                printf("%d\r\n", count);
                 break;
+            case '4':
+                printf("Delete an element from the database\r\n");
+                break;
+            case '5':
+                printf("Exiting...\r\n");
+                break;  
             default:
                 printf("Non valid input\r\n");
                 break;
-            }
         }
-        else if(argc > 2) {
-            printf("Too many arguments.\n\r");
-        }
-    return iUserSelectedChoice;
+    }
+    return 0;
 }
