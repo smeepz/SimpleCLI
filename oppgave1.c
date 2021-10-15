@@ -31,9 +31,9 @@ int main(int argc, char*argv[]){
                 break;
             case '2':
                 printf("Find element in the database\r\n");
-                int index = getchar() - '0';
+                int findIndex = getchar() - '0';
                 while(getchar() != '\n');
-                char *temp = getElement(index);
+                char *temp = getElement(findIndex);
                 printf("The element is: %s\r\n", temp);
                 break;
             case '3':
@@ -43,6 +43,11 @@ int main(int argc, char*argv[]){
                 break;
             case '4':
                 printf("Delete an element from the database\r\n");
+                printf("Enter index for the element to delete:\r\n");
+                int deleteIndex = getchar() - '0';
+                while(getchar() != '\n');
+                deleteEntry(deleteIndex);
+                printf("The value at index %d has been deleted. \r\n", deleteIndex);
                 break;
             case '5':
                 printf("Exiting...\r\n");

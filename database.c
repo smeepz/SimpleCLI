@@ -21,6 +21,13 @@ char * getElement(int index){
     return dataBase[index];
 }
 
+void deleteEntry(int index){
+    for(int i = index; i < size - 1; i++){
+        *dataBase[i] = *dataBase[i + 1];
+    }
+    size--;
+}
+
 int getEntryCount(){
     return(size);
 }
