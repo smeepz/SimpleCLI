@@ -32,13 +32,14 @@ int main(int argc, char*argv[]){
             case '2':
                 printf("Find element in the database\r\n");
                 int index = getchar() - '0';
+                while(getchar() != '\n');
                 char *temp = getElement(index);
-                printf("%s", temp);
+                printf("The element is: %s\r\n", temp);
                 break;
             case '3':
                 printf("Find the total number of elements in the database\r\n");
                 int count = getEntryCount();
-                printf("%d\r\n", count);
+                printf("Total elements: %d\r\n", count);
                 break;
             case '4':
                 printf("Delete an element from the database\r\n");
