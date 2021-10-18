@@ -8,7 +8,6 @@ int main(int argc, char*argv[]){
     char input;
     char szBuffer[255];
 
-    //createDatabase();
     while(input != '5'){
 
         printf("skriv en ønsket kommando [1-5]:\n\r");
@@ -18,7 +17,6 @@ int main(int argc, char*argv[]){
         printf("4. Delete an element from the database\n\r");
         printf("5. Quit\n\r");
 
-        //scanf("%d", &input);
         input = getchar();
         while(getchar() != '\n');
         switch(input){
