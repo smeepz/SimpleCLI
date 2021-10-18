@@ -1,6 +1,6 @@
 # SimpleCLI
 
-This is a simple interface running in the commandline.
+This is a simple interface running in the commandline written in ANSI C (C89).
 It is similar to what we will see on the exam for task 2-3.
 
 To run:
